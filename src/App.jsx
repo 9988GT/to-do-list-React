@@ -10,6 +10,11 @@ function App() {
   let addlist=(inputValue)=>{
     setlistTodo([...listTodo,inputValue]);
   }
+  const deleteListItem=(key)=>{
+    let newListTodo=[...listTodo];
+    newListTodo.splice(key,1)
+    setlistTodo([...newListTodo]);
+  }
   return (
   <div className="main-container">
     <div className="center-container">
@@ -18,7 +23,7 @@ function App() {
       <hr/>
       {listTodo.map((listItem,i)=>{
         return(
-         <TodoList key={i}  item={listItem}/>
+         <TodoList  item={listItem} key={i}  index={i}  deleteItem={deleteListItem}/>
         )
       })}
    
